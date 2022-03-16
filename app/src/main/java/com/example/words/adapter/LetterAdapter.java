@@ -1,6 +1,7 @@
 package com.example.words.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.words.DetailActivity;
 import com.example.words.R;
 
 import java.util.ArrayList;
@@ -37,7 +39,9 @@ public class LetterAdapter extends RecyclerView.Adapter<LetterAdapter.LetterView
         Character letter = letters.get(position);
         holder.button.setText(letter.toString());
         holder.button.setOnClickListener((view) -> {
-
+            Intent intent = new Intent(context, DetailActivity.class);
+            intent.putExtra("a", letter.toString());
+            context.startActivity(intent);
         });
     }
 
